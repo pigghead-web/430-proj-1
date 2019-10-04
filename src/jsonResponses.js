@@ -4,7 +4,7 @@ const users = {};
 // Container for all objects that will be displayed on the screen
 // aka >> user sends message, message gets stored here, updates to
 // this object will cause them to get sent to the chat box
-const chatBox = {};
+//const chatBox = {};
 
 const respondJSON = (request, response, status, object) => {
     response.writeHead(status, {'Content-Type': 'application/json'});
@@ -12,7 +12,7 @@ const respondJSON = (request, response, status, object) => {
     response.end();
 }
 
-const addUser = (request, response) =>  {
+const addUser = (request, response, body) =>  {
     const responseJSON = {
         message: "Please include a username",  // this will be a message for debugging
         userMessage: " ",  // this is the actual message that will be sent by the user
@@ -23,7 +23,7 @@ const addUser = (request, response) =>  {
         return respondJSON(request, response, 400, responseJSON);
     }
     
-    const statusCode = 200;
+    let statusCode = 200;
     
     if(users[body.username]) {
         statusCode = 204;  // update statusCode
