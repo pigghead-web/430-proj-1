@@ -1,0 +1,17 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    background-color: aqua;
+}
+
+input #send-area {
+    width: 100%;
+    background-color: antiquewhite;
+    padding: 10px;
+}
+
+div #message-area {
+    
+}
