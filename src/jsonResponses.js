@@ -1,14 +1,14 @@
 // a list of all connected users
 const users = {};
 
-// Container for all objects that will be displayed on the screen
-// aka >> user sends message, message gets stored here, updates to
-// this object will cause them to get sent to the chat box
-//const chatBox = {};
-
 const respondJSON = (request, response, status, object) => {
     response.writeHead(status, {'Content-Type': 'application/json'});
     response.write(JSON.stringify(object));
+    response.end();
+}
+
+const respondJSONMeta = (request, response, object) => {
+    response.write(JSON.stringify(object))
     response.end();
 }
 
@@ -17,6 +17,8 @@ const addUser = (request, response, body) =>  {
         message: "Please include a username",  // this will be a message for debugging
         userMessage: " ",  // this is the actual message that will be sent by the user
     };
+    
+    console.dir('ADDING USER...');
     
     if(!body.username) {
         responseJSON.id = "missingElements"
@@ -34,6 +36,14 @@ const addUser = (request, response, body) =>  {
     respondJSON(request, response, statusCode, responseJSON);
 }
 
+const getUsers = (request, response, body) => {
+    respondJSON(request, response, 200, users);
+}
+
+const getUsersMeta = (request, response) => {
+    respondJSONMeta(request, response, users);
+}
+
 const notFound = (request, response) => {
     const responseJSON = {
         message: "Page not found",
@@ -42,7 +52,18 @@ const notFound = (request, response) => {
     respondJSON(request, response, 404, responseJSON);
 }
 
+const notFoundMeta = (request, response) => {
+    const responseJSON = {
+        message: "Page not found",
+    };
+    
+    respondJSONMeta(request, response, responseJSON);
+}
+
 module.exports = {
     addUser,
-    notFound
+    getUsers,
+    getUsersMeta,
+    notFound,
+    notFoundMeta,
 }
