@@ -28,7 +28,7 @@ const urlStruct = {
 
 // handle GET -- handle >>AUTOMATICALLY<<
 
-// handle POST
+/*// handle POST
 const handlePost = (request, response, parsedUrl) => {
     
     if (parsedUrl === '/addUser') {
@@ -51,7 +51,7 @@ const handlePost = (request, response, parsedUrl) => {
             jsonHandler.addUser(request, response, body);
         });
     }
-}
+}*/
 
 // Handle requests
 const onRequest = (request, response) => {

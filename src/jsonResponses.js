@@ -36,7 +36,7 @@ const addUser = (request, response, body) =>  {
     respondJSON(request, response, statusCode, responseJSON);
 }
 
-const getUsers = (request, response, body) => {
+const getUsers = (request, response) => {
     respondJSON(request, response, 200, users);
 }
 
