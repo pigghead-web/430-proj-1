@@ -33,7 +33,7 @@ const handleResponse = (xhr) => {
     // Get a reference to where all messages will go
     const content = document.querySelector('#message-thread');
     
-    console.log(xhr.response);
+    console.log("Created xhr response: " + xhr.response);
     
     /*if (parseResponse) {
         const obj = JSON.parse(xhr);
@@ -44,6 +44,17 @@ const handleResponse = (xhr) => {
     switch(xhr.response) {
         case 200:
             content.innerHTML = `${xhr.response}`;
+            break;
+        case 201: 
+            break;
+        case 204:
+            break;
+        case 400:
+            break;
+        case 404:
+            break;
+        case 500:
+            break;
     }
     
     // The xhr object passed to parseJSON

@@ -28,8 +28,8 @@ const urlStruct = {
 
 // handle GET -- handle >>AUTOMATICALLY<<
 
-/*// handle POST
-const handlePost = (request, response, parsedUrl) => {
+// handle POST
+/*const handlePost = (request, response, parsedUrl) => {
     
     if (parsedUrl === '/addUser') {
         const res = response;

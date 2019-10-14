@@ -29,11 +29,11 @@ const sendPost = (e, loginForm) => {
     xhr.send();
 };
 
-const handleResponse = xhr => {
+const handleResponse = (xhr) => {
     // Get a reference to where all messages will go
     const content = document.querySelector('#message-thread');
 
-    console.log(xhr.response);
+    console.log("Created xhr response: " + xhr.response);
 
     /*if (parseResponse) {
         const obj = JSON.parse(xhr);
@@ -44,6 +44,17 @@ const handleResponse = xhr => {
     switch (xhr.response) {
         case 200:
             content.innerHTML = `${xhr.response}`;
+            break;
+        case 201:
+            break;
+        case 204:
+            break;
+        case 400:
+            break;
+        case 404:
+            break;
+        case 500:
+            break;
     }
 
     // The xhr object passed to parseJSON
@@ -57,6 +68,8 @@ const setNickname = (e, usernameForm) => {
     // idea is to update p to reflect user inputted nickname
     const p = document.querySelector('#nickname-input').value;
 
+    console.log("setNickname url: " + url);
+    
     //console.log(`p: ${p}`);
 
     // If there has been no user input, alert the user
@@ -87,7 +100,7 @@ const sendMessage = (e, sendArea) => {
     //console.log("click");
     // create a new li object that will be added to the global
     // ul message area
-    //const m = document.createElement("li");
+    const m = document.createElement("li");
 
     // action is the url to navigate to
     const url = sendArea.getAttribute('action');
@@ -98,6 +111,9 @@ const sendMessage = (e, sendArea) => {
     const u_m = document.querySelector("#user-message");
 
     //console.log(url);
+    
+    //console.log(url);
+    //console.log(method);
 
     if (u_m.value == "") {
         alert("Please enter a message");

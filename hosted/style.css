@@ -12,8 +12,14 @@ html, body {
     padding: 10px;
 }
 
+#usernameForm {
+    background-color: bisque;
+    padding: 4px;
+}
+
 div #message-area {
-    height: 10px;
+    justify-content: center;
+    background-color: beige;
 }
 
 #message-area.ul {
